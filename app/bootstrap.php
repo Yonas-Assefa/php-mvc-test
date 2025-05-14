@@ -30,8 +30,18 @@ if ($dockerEnv === 'true') {
     require_once 'config/config.php';
 }
 
+// Load Logger class first as other classes may depend on it
+require_once $corePath . 'Logger.php';
+
+// Initialize the global logger instance
+$GLOBALS['logger'] = new Logger();
+
 // Load helpers
 require_once $appPath . 'helpers/url_helper.php';
+require_once $appPath . 'helpers/logger_helper.php';
+
+// Log application start
+log_info('Application started', ['environment' => $dockerEnv === 'true' ? 'docker' : 'local']);
 
 // Autoload core classes
 spl_autoload_register(function($className) use ($corePath, $controllerPath, $modelPath) {

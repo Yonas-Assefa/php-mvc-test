@@ -1,0 +1,16 @@
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Application started {"environment":"local"}
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Routing request {"url":[],"method":"GET","ip":"127.0.0.1"}
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Data controller initialized
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Data controller index method called {"category":"employee","ip":"127.0.0.1"}
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Getting data {"category":"employee"}
+[2025-05-15 02:36:29] [INFO] [127.0.0.1] [/?category=employee] Fetching data from API {"url":"https:\/\/jsonplaceholder.typicode.com\/users"}
+[2025-05-15 02:36:30] [INFO] [127.0.0.1] [/?category=employee] Data fetched from API {"count":10}
+[2025-05-15 02:36:30] [INFO] [127.0.0.1] [/?category=employee] Request completed successfully {"controller":"Data","method":"index"}
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Application started {"environment":"local"}
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Routing request {"url":[],"method":"GET","ip":"127.0.0.1"}
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Data controller initialized
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Data controller index method called {"category":null,"ip":"127.0.0.1"}
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Getting data {"category":null}
+[2025-05-15 02:36:33] [INFO] [127.0.0.1] [/] Fetching data from API {"url":"https:\/\/jsonplaceholder.typicode.com\/users"}
+[2025-05-15 02:36:34] [INFO] [127.0.0.1] [/] Data fetched from API {"count":10}
+[2025-05-15 02:36:34] [INFO] [127.0.0.1] [/] Request completed successfully {"controller":"Data","method":"index"}

@@ -10,5 +10,9 @@ services:
       - DOCKER_ENV=true
       - PHP_DISPLAY_ERRORS=1
     command: >
-      bash -c "php -S 0.0.0.0:8000 docker-router.php"
+      bash -c "
+        mkdir -p /app/app/logs &&
+        chmod -R 777 /app/app/logs &&
+        php -S 0.0.0.0:8000 docker-router.php
+      "
     restart: unless-stopped 

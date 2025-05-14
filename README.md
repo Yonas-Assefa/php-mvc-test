@@ -10,6 +10,7 @@ A simple PHP MVC application that loads and displays data from JSONPlaceholder A
 - Allows filtering data by category using GET parameters
 - Responsive design
 - Supports both local development and Docker environments
+- Industry-standard logging system
 
 ## Data Source
 
@@ -56,6 +57,23 @@ The application fetches user data from the JSONPlaceholder API (https://jsonplac
    docker compose up -d --build
    ```
 5. Access the application at http://localhost:8080
+
+## Logging System
+
+The application includes an industry-standard logging system with the following features:
+
+- PSR-3 inspired logging with multiple log levels (emergency, alert, critical, error, warning, notice, info, debug)
+- Log file rotation when files exceed 5MB
+- Formatted logs with timestamp, level, IP address, URI, message, and context data
+- Various helper functions for easier logging
+- Integrated throughout the application for request tracking, error handling, and data operations
+
+Log files are stored in `app/logs/app.log` and can be accessed to troubleshoot issues or monitor application behavior.
+
+Example log entry:
+```
+[2025-05-14 23:29:36] [INFO] [172.19.0.1] [/] Application started {"environment":"docker"}
+```
 
 ## Troubleshooting Docker Setup
 
@@ -107,17 +125,46 @@ The application uses different configuration files based on the environment:
 - You can filter the data by clicking on the category buttons
 - The URL will update with the category parameter (e.g., `?category=admin`)
 
-## Structure
+## Directory Structure
 
-- `app/` - Application code
-  - `controllers/` - Controller classes
-  - `models/` - Model classes
-  - `views/` - View files
-  - `core/` - Core framework classes
-  - `data/` - JSON data (backup)
-  - `config/` - Configuration files
-  - `helpers/` - Helper functions
-- `public/` - Publicly accessible files
-- `Dockerfile` - Docker configuration
-- `docker-compose.yml` - Docker Compose configuration for Apache setup
-- `docker-compose.php.yml` - Simplified Docker Compose using PHP built-in server 
+```
+.
+├── app/                    # Application code
+│   ├── config/             # Configuration files
+│   │   ├── config.php      # Default configuration
+│   │   ├── config.docker.php # Docker environment config
+│   │   └── config.local.php  # Local environment config
+│   ├── controllers/        # Controller classes
+│   │   └── Data.php        # Main data controller
+│   ├── core/               # Core framework classes
+│   │   ├── App.php         # Main application class for routing
+│   │   ├── Controller.php  # Base controller class
+│   │   └── Logger.php      # Logging system
+│   ├── data/               # JSON data backup
+│   │   └── data.json       # API data backup
+│   ├── helpers/            # Helper functions
+│   │   ├── logger_helper.php # Logging helper functions
+│   │   └── url_helper.php    # URL helper functions
+│   ├── logs/               # Application logs
+│   │   └── app.log         # Main log file
+│   ├── models/             # Model classes
+│   │   └── DataModel.php   # Data handling model
+│   └── views/              # View files
+│       ├── data/           # Data view templates
+│       │   └── index.php   # Main data display template
+│       └── inc/            # Included templates
+│           ├── footer.php  # Footer template
+│           └── header.php  # Header template
+├── public/                 # Publicly accessible files
+├── Dockerfile              # Docker configuration for Apache setup
+├── docker-compose.yml      # Docker Compose configuration for Apache setup
+├── docker-compose.php.yml  # Simplified Docker Compose using PHP built-in server
+├── docker-index.php        # Simple Docker test file
+├── docker-router.php       # Router for PHP built-in server
+├── docker-test.php         # Docker environment test file
+├── index.php               # Application entry point
+├── README.md               # This file
+├── run-docker-simple.sh    # Script to run Docker with PHP built-in server
+├── setup-docker.sh         # Script to set up Docker environment
+└── setup-local.sh          # Script to set up local environment
+``` 

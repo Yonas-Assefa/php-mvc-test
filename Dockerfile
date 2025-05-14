@@ -17,6 +17,10 @@ WORKDIR /var/www/html
 # Copy application files
 COPY . /var/www/html/
 
+# Create and set permissions for log directory
+RUN mkdir -p /var/www/html/app/logs \
+    && chmod -R 777 /var/www/html/app/logs
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
 
