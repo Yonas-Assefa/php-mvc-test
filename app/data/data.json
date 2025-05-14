@@ -3,13 +3,13 @@
         "id": 1,
         "name": "Leanne Graham",
         "email": "Sincere@april.biz",
-        "category": "customer"
+        "category": "admin"
     },
     {
         "id": 2,
         "name": "Ervin Howell",
         "email": "Shanna@melissa.tv",
-        "category": "customer"
+        "category": "admin"
     },
     {
         "id": 3,
@@ -21,42 +21,42 @@
         "id": 4,
         "name": "Patricia Lebsack",
         "email": "Julianne.OConner@kory.org",
-        "category": "customer"
+        "category": "employee"
     },
     {
         "id": 5,
         "name": "Chelsey Dietrich",
         "email": "Lucio_Hettinger@annie.ca",
-        "category": "employee"
+        "category": "admin"
     },
     {
         "id": 6,
         "name": "Mrs. Dennis Schulist",
         "email": "Karley_Dach@jasper.info",
-        "category": "admin"
+        "category": "customer"
     },
     {
         "id": 7,
         "name": "Kurtis Weissnat",
         "email": "Telly.Hoeger@billy.biz",
-        "category": "admin"
+        "category": "employee"
     },
     {
         "id": 8,
         "name": "Nicholas Runolfsdottir V",
         "email": "Sherwood@rosamond.me",
-        "category": "admin"
+        "category": "customer"
     },
     {
         "id": 9,
         "name": "Glenna Reichert",
         "email": "Chaim_McDermott@dana.io",
-        "category": "customer"
+        "category": "employee"
     },
     {
         "id": 10,
         "name": "Clementina DuBuque",
         "email": "Rey.Padberg@karina.biz",
-        "category": "customer"
+        "category": "admin"
     }
 ]
