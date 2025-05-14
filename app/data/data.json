@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "category": "customer"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "category": "customer"
+    },
+    {
+        "id": 3,
+        "name": "Bob Johnson",
+        "email": "bob@example.com",
+        "category": "admin"
+    },
+    {
+        "id": 4,
+        "name": "Alice Brown",
+        "email": "alice@example.com",
+        "category": "employee"
+    },
+    {
+        "id": 5,
+        "name": "Tom Wilson",
+        "email": "tom@example.com",
+        "category": "employee"
+    },
+    {
+        "id": 6,
+        "name": "Sarah Davis",
+        "email": "sarah@example.com",
+        "category": "admin"
+    }
+] 
