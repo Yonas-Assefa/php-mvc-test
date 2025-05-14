@@ -1,38 +1,62 @@
 [
     {
         "id": 1,
-        "name": "John Doe",
-        "email": "john@example.com",
+        "name": "Leanne Graham",
+        "email": "Sincere@april.biz",
         "category": "customer"
     },
     {
         "id": 2,
-        "name": "Jane Smith",
-        "email": "jane@example.com",
+        "name": "Ervin Howell",
+        "email": "Shanna@melissa.tv",
         "category": "customer"
     },
     {
         "id": 3,
-        "name": "Bob Johnson",
-        "email": "bob@example.com",
-        "category": "admin"
-    },
-    {
-        "id": 4,
-        "name": "Alice Brown",
-        "email": "alice@example.com",
+        "name": "Clementine Bauch",
+        "email": "Nathan@yesenia.net",
         "category": "employee"
     },
     {
+        "id": 4,
+        "name": "Patricia Lebsack",
+        "email": "Julianne.OConner@kory.org",
+        "category": "customer"
+    },
+    {
         "id": 5,
-        "name": "Tom Wilson",
-        "email": "tom@example.com",
+        "name": "Chelsey Dietrich",
+        "email": "Lucio_Hettinger@annie.ca",
         "category": "employee"
     },
     {
         "id": 6,
-        "name": "Sarah Davis",
-        "email": "sarah@example.com",
+        "name": "Mrs. Dennis Schulist",
+        "email": "Karley_Dach@jasper.info",
         "category": "admin"
+    },
+    {
+        "id": 7,
+        "name": "Kurtis Weissnat",
+        "email": "Telly.Hoeger@billy.biz",
+        "category": "admin"
+    },
+    {
+        "id": 8,
+        "name": "Nicholas Runolfsdottir V",
+        "email": "Sherwood@rosamond.me",
+        "category": "admin"
+    },
+    {
+        "id": 9,
+        "name": "Glenna Reichert",
+        "email": "Chaim_McDermott@dana.io",
+        "category": "customer"
+    },
+    {
+        "id": 10,
+        "name": "Clementina DuBuque",
+        "email": "Rey.Padberg@karina.biz",
+        "category": "customer"
     }
-] 
+]

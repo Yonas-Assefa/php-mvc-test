@@ -1,6 +1,8 @@
 <?php
 class DataModel {
     private $dataPath;
+    private $apiUrl = 'https://jsonplaceholder.typicode.com/users';
+    private $categories = ['customer', 'admin', 'employee'];
     
     public function __construct() {
         $this->dataPath = DATA_PATH;
@@ -8,14 +10,7 @@ class DataModel {
     
     // Get all data or filtered by category
     public function getData($category = null) {
-        // Check if file exists
-        if (!file_exists($this->dataPath)) {
-            return [];
-        }
-        
-        // Get data from JSON file
-        $jsonData = file_get_contents($this->dataPath);
-        $data = json_decode($jsonData, true);
+        $data = $this->fetchFromApi();
         
         // If no category filter is specified, return all data
         if (empty($category)) {
@@ -32,17 +27,42 @@ class DataModel {
     
     // Get all unique categories
     public function getCategories() {
-        if (!file_exists($this->dataPath)) {
+        return $this->categories;
+    }
+    
+    // Fetch data from the API
+    private function fetchFromApi() {
+        $jsonData = @file_get_contents($this->apiUrl);
+        
+        // If API request fails, try to use local data
+        if ($jsonData === false) {
+            if (file_exists($this->dataPath)) {
+                $jsonData = file_get_contents($this->dataPath);
+                $data = json_decode($jsonData, true);
+                return $data;
+            }
             return [];
         }
         
-        $jsonData = file_get_contents($this->dataPath);
-        $data = json_decode($jsonData, true);
+        $apiData = json_decode($jsonData, true);
         
-        $categories = array_map(function($item) {
-            return $item['category'];
-        }, $data);
+        // Transform API data to match our structure
+        $transformedData = [];
+        foreach ($apiData as $index => $user) {
+            // Assign random category to each user
+            $randomCategory = $this->categories[array_rand($this->categories)];
+            
+            $transformedData[] = [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'category' => $randomCategory
+            ];
+        }
         
-        return array_unique($categories);
+        // Save transformed data to local file as a backup
+        file_put_contents($this->dataPath, json_encode($transformedData, JSON_PRETTY_PRINT));
+        
+        return $transformedData;
     }
 } 

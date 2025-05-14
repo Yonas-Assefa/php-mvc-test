@@ -5,16 +5,26 @@ class App {
     protected $params = [];
 
     public function __construct() {
+        // Determine environment
+        $dockerEnv = getenv('DOCKER_ENV');
+        
+        // Set controller path based on environment
+        if ($dockerEnv === 'true') {
+            $controllerPath = __DIR__ . '/../controllers/';
+        } else {
+            $controllerPath = 'app/controllers/';
+        }
+        
         $url = $this->parseUrl();
 
         // Check for controller
-        if(isset($url[0]) && file_exists('app/controllers/' . ucwords($url[0]) . '.php')) {
+        if(isset($url[0]) && file_exists($controllerPath . ucwords($url[0]) . '.php')) {
             $this->controller = ucwords($url[0]);
             unset($url[0]);
         }
 
         // Require the controller
-        require_once 'app/controllers/' . $this->controller . '.php';
+        require_once $controllerPath . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         // Check for method
