@@ -12,6 +12,56 @@ A simple PHP MVC application that loads and displays data from JSONPlaceholder A
 - Supports both local development and Docker environments
 - Industry-standard logging system
 
+## Application Demo
+
+Below is a screenshot of the application showing the data table with category filtering:
+
+![PHP MVC Application Demo](public/app_demo.png)
+
+## Directory Structure
+
+```
+.
+├── app/                    # Application code
+│   ├── config/             # Configuration files
+│   │   ├── config.php      # Default configuration
+│   │   ├── config.docker.php # Docker environment config
+│   │   └── config.local.php  # Local environment config
+│   ├── controllers/        # Controller classes
+│   │   └── Data.php        # Main data controller
+│   ├── core/               # Core framework classes
+│   │   ├── App.php         # Main application class for routing
+│   │   ├── Controller.php  # Base controller class
+│   │   └── Logger.php      # Logging system
+│   ├── data/               # JSON data backup
+│   │   └── data.json       # API data backup
+│   ├── helpers/            # Helper functions
+│   │   ├── logger_helper.php # Logging helper functions
+│   │   └── url_helper.php    # URL helper functions
+│   ├── logs/               # Application logs
+│   │   └── app.log         # Main log file
+│   ├── models/             # Model classes
+│   │   └── DataModel.php   # Data handling model
+│   └── views/              # View files
+│       ├── data/           # Data view templates
+│       │   └── index.php   # Main data display template
+│       └── inc/            # Included templates
+│           ├── footer.php  # Footer template
+│           └── header.php  # Header template
+├── public/                 # Publicly accessible files
+├── Dockerfile              # Docker configuration for Apache setup
+├── docker-compose.yml      # Docker Compose configuration for Apache setup
+├── docker-compose.php.yml  # Simplified Docker Compose using PHP built-in server
+├── docker-index.php        # Simple Docker test file
+├── docker-router.php       # Router for PHP built-in server
+├── docker-test.php         # Docker environment test file
+├── index.php               # Application entry point
+├── README.md               # This file
+├── run-docker-simple.sh    # Script to run Docker with PHP built-in server
+├── setup-docker.sh         # Script to set up Docker environment
+└── setup-local.sh          # Script to set up local environment
+```
+
 ## Data Source
 
 The application fetches user data from the JSONPlaceholder API (https://jsonplaceholder.typicode.com/users) and assigns random categories (customer, admin, employee) to each user for demonstration purposes. If the API is unavailable, it falls back to a local JSON file.
@@ -123,48 +173,4 @@ The application uses different configuration files based on the environment:
 
 - Access the application through your web browser
 - You can filter the data by clicking on the category buttons
-- The URL will update with the category parameter (e.g., `?category=admin`)
-
-## Directory Structure
-
-```
-.
-├── app/                    # Application code
-│   ├── config/             # Configuration files
-│   │   ├── config.php      # Default configuration
-│   │   ├── config.docker.php # Docker environment config
-│   │   └── config.local.php  # Local environment config
-│   ├── controllers/        # Controller classes
-│   │   └── Data.php        # Main data controller
-│   ├── core/               # Core framework classes
-│   │   ├── App.php         # Main application class for routing
-│   │   ├── Controller.php  # Base controller class
-│   │   └── Logger.php      # Logging system
-│   ├── data/               # JSON data backup
-│   │   └── data.json       # API data backup
-│   ├── helpers/            # Helper functions
-│   │   ├── logger_helper.php # Logging helper functions
-│   │   └── url_helper.php    # URL helper functions
-│   ├── logs/               # Application logs
-│   │   └── app.log         # Main log file
-│   ├── models/             # Model classes
-│   │   └── DataModel.php   # Data handling model
-│   └── views/              # View files
-│       ├── data/           # Data view templates
-│       │   └── index.php   # Main data display template
-│       └── inc/            # Included templates
-│           ├── footer.php  # Footer template
-│           └── header.php  # Header template
-├── public/                 # Publicly accessible files
-├── Dockerfile              # Docker configuration for Apache setup
-├── docker-compose.yml      # Docker Compose configuration for Apache setup
-├── docker-compose.php.yml  # Simplified Docker Compose using PHP built-in server
-├── docker-index.php        # Simple Docker test file
-├── docker-router.php       # Router for PHP built-in server
-├── docker-test.php         # Docker environment test file
-├── index.php               # Application entry point
-├── README.md               # This file
-├── run-docker-simple.sh    # Script to run Docker with PHP built-in server
-├── setup-docker.sh         # Script to set up Docker environment
-└── setup-local.sh          # Script to set up local environment
-``` 
+- The URL will update with the category parameter (e.g., `?category=admin`) 
